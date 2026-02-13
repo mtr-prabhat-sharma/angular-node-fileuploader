@@ -14,13 +14,20 @@ export class FileUpload implements OnInit{
   progressBarValue =  signal(10);
 
   ngOnInit(): void {
-    const interval = setInterval(() => {
-    if (this.progressBarValue() >= 100) {
-      clearInterval(interval);
+    
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    if (!input.files || input.files.length === 0) {
       return;
     }
 
-    this.progressBarValue.update(v => v + 1);
-  }, 1000);
+    const file = input.files[0];
+
+    console.log('File Name:', file.name);
+    console.log('File Size (bytes):', file.size);
+    console.log('File Type:', file.type);
   }
 }

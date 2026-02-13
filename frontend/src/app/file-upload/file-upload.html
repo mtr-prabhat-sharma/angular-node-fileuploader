@@ -1,46 +1,44 @@
 <div class="upload-container mat-elevation-z4">
 
-  <h2 class="title">Upload File</h2>
+    <h2 class="title">Upload File</h2>
 
-  <!-- Drag & Drop Area -->
-  <div class="drop-zone">
-    <mat-icon class="upload-icon">cloud_upload</mat-icon>
+    <!-- Drag & Drop Area -->
+    <div class="drop-zone">
+        <mat-icon class="upload-icon">cloud_upload</mat-icon>
 
-    <p class="primary-text">
-      Drag & Drop your file here
-    </p>
+        <p class="primary-text">
+            Drag & Drop your file here
+        </p>
 
-    <p class="secondary-text">or</p>
+        <p class="secondary-text">or</p>
+        <input #fileInput type="file" hidden (change)="onFileSelected($event)" />
+        <!-- Browse Button -->
+        <button mat-raised-button color="primary" type="button" (click)="fileInput.click()">
+            Browse File
+        </button>
 
-    <button mat-raised-button color="primary">
-      Browse File
-    </button>
+        <input type="file" hidden />
+    </div>
 
-    <input type="file" hidden />
-  </div>
+    <!-- Selected File Preview -->
+    <div class="file-preview">
+        <mat-icon color="primary">insert_drive_file</mat-icon>
+        <span class="file-name">sample-file.pdf</span>
 
-  <!-- Selected File Preview -->
-  <div class="file-preview">
-    <mat-icon color="primary">insert_drive_file</mat-icon>
-    <span class="file-name">sample-file.pdf</span>
+        <button mat-icon-button color="warn">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
 
-    <button mat-icon-button color="warn">
-      <mat-icon>close</mat-icon>
-    </button>
-  </div>
+    <!-- Progress Section -->
+    <div class="progress-section">
 
-  <!-- Progress Section -->
-  <div class="progress-section">
+        <!-- Determinate Progress (for real upload %) -->
+        <mat-progress-bar mode="determinate" [value]="progressBarValue()" color="primary">
+        </mat-progress-bar>
 
-  <!-- Determinate Progress (for real upload %) -->
-  <mat-progress-bar
-    mode="determinate"
-    [value]="progressBarValue()"
-    color="primary">
-  </mat-progress-bar>
+        <p class="uploading-text">Uploading... {{progressBarValue()}}%</p>
 
-  <p class="uploading-text">Uploading... {{progressBarValue()}}%</p>
-
-</div>
+    </div>
 
 </div>
