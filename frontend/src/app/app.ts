@@ -4,7 +4,7 @@ import { FileUpload } from "./file-upload/file-upload";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FileUpload],
+  imports: [FileUpload],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

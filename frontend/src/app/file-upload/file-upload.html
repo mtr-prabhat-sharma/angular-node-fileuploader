@@ -35,11 +35,11 @@
   <!-- Determinate Progress (for real upload %) -->
   <mat-progress-bar
     mode="determinate"
-    value="60"
+    [value]="progressBarValue()"
     color="primary">
   </mat-progress-bar>
 
-  <p class="uploading-text">Uploading... 60%</p>
+  <p class="uploading-text">Uploading... {{progressBarValue()}}%</p>
 
 </div>
 
