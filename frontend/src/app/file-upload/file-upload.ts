@@ -1,8 +1,9 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { Sign } from 'crypto';
+
 
 @Component({
   selector: 'app-file-upload',
@@ -12,7 +13,8 @@ import { Sign } from 'crypto';
 })
 export class FileUpload implements OnInit{
   progressBarValue =  signal(10);
-
+  private http = inject(HttpClient);
+  
   ngOnInit(): void {
     
   }
@@ -29,5 +31,18 @@ export class FileUpload implements OnInit{
     console.log('File Name:', file.name);
     console.log('File Size (bytes):', file.size);
     console.log('File Type:', file.type);
+
+    this.uploadFile(file);
   }
+  uploadFile(file: File) {
+  const formData = new FormData();
+  formData.append('file', file);
+
+  this.http.post('http://localhost:5000/upload', formData)
+    .subscribe({
+      next: (res) => console.log(res),
+      error: (err) => console.error(err)
+    });
+}
+
 }
