@@ -21,6 +21,10 @@ const upload = multer({
   storage: multer.memoryStorage(), // store file in memory
 });
 
+app.get('/', (req, res) => {
+  res.send('Backend is running 🚀');
+});
+
 /* ---------- Upload Route ---------- */
 app.post('/upload', upload.single('file'), async (req, res) => {
   try {
