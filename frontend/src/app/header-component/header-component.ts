@@ -13,14 +13,12 @@ import { Router } from '@angular/router';
   styleUrl: './header-component.scss',
 })
 export class HeaderComponent {
-
-  userName = 'Prabhat'; 
+  userName = 'Prabhat';
 
   constructor(private router: Router) {}
 
   logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['/']);
+    this.router.navigateByUrl('/login');
   }
-
 }

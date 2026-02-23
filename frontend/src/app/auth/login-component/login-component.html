@@ -33,7 +33,10 @@
       </mat-form-field>
 
       <button mat-raised-button color="primary" class="full-width" [disabled]="loginForm.invalid">
-        Login
+        Sign In
+      </button>
+      <button type="button" mat-raised-button color="primary" (click)="signUp()" class="full-width" >
+        Sign Up
       </button>
 
     </form>
