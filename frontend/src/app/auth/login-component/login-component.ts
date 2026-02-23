@@ -10,10 +10,13 @@ import {
   Validators,
   FormGroup,
 } from '@angular/forms';
+import { AuthService } from '../auth-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-component',
   imports: [MatCardModule, MatInputModule, MatButtonModule, MatIconModule, ReactiveFormsModule],
+  providers: [AuthService],
   standalone: true,
   templateUrl: './login-component.html',
   styleUrl: './login-component.scss',
@@ -21,12 +24,27 @@ import {
 export class LoginComponent {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       email: [' ', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
   }
 
-  onSubmit() {}
+  onSubmit() {
+    if(this.loginForm.valid){
+      console.log("inside if")
+        this.authService.login(this.loginForm.value).subscribe({
+          next: (res: any) => {
+            console.log("Login success", res);
+            localStorage.setItem('token', res.token);
+            this.router.navigate(['/dashboard'])
+          },
+          error: (error) => {
+            console.log("Invalid Cred", error);
+            
+          }
+        })
+    }
+  }
 }
