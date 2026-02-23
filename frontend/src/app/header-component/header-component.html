@@ -1,0 +1,26 @@
+<mat-toolbar class="custom-toolbar">
+
+  <div class="logo">
+    <mat-icon>cloud_upload</mat-icon>
+    <span>FileUploader</span>
+  </div>
+
+  <span class="spacer"></span>
+
+  <button mat-icon-button>
+    <mat-icon>notifications</mat-icon>
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="menu" class="user-btn">
+    <mat-icon>account_circle</mat-icon>
+    {{ userName }}
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+  </mat-menu>
+
+</mat-toolbar>

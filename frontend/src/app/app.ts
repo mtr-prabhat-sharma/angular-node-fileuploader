@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FileUpload } from "./file-upload/file-upload";
+import { HeaderComponent } from "./header-component/header-component";
 
 @Component({
   selector: 'app-root',
-  imports: [FileUpload, RouterOutlet],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
