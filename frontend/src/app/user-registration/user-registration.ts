@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-registration',
@@ -21,7 +22,7 @@ import { CommonModule } from '@angular/common';
 export class UserRegistration {
    registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -36,5 +37,9 @@ export class UserRegistration {
       console.log('Form Data:', this.registerForm.value);
       // Call registration API here
     }
+  }
+
+  redirectToSignInPage() {
+    this.router.navigate(['/login'])
   }
 }

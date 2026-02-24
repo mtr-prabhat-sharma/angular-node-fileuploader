@@ -1,12 +1,13 @@
 <div class="login-wrapper">
   <mat-card class="login-card">
-    <mat-card-title>Login</mat-card-title>
+    <mat-card-title>Welcome Back</mat-card-title>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" type="email" />
+        <mat-icon matSuffix>email</mat-icon>
         @if (loginForm.get('email')?.hasError('required')) {
         <mat-error>
           Email is required
@@ -14,7 +15,7 @@
         }
 
         @if (loginForm.get('email')?.hasError('email')) {
-        <mat-error>
+        <mat-error class="custom-error">
           Invalid email format
         </mat-error>
         }
@@ -24,6 +25,7 @@
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Password</mat-label>
         <input matInput formControlName="password" type="password" />
+        <mat-icon matSuffix>lock</mat-icon>
         @if (loginForm.get('password')?.hasError('required')) {
         <mat-error>
           Password is required
