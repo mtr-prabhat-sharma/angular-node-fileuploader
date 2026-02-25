@@ -34,12 +34,6 @@
     },
     {
       "path": "./tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/hello-word/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/hello-word/tsconfig.spec.json"
     }
   ]
 }
