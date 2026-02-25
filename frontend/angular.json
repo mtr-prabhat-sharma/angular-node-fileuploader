@@ -34,26 +34,6 @@
             ]
           },
           "configurations": {
-            "production": {
-              "server": "src/main.server.ts",
-              "outputMode": "server",
-              "ssr": {
-                "entry": "src/server.ts"
-              },
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
-              "outputHashing": "all"
-            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
@@ -94,36 +74,6 @@
             ],
             "styles": [
               "src/styles.scss"
-            ]
-          }
-        }
-      }
-    },
-    "hello-word": {
-      "projectType": "library",
-      "root": "projects/hello-word",
-      "sourceRoot": "projects/hello-word/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular/build:ng-packagr",
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/hello-word/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/hello-word/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular/build:karma",
-          "options": {
-            "tsConfig": "projects/hello-word/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
             ]
           }
         }
