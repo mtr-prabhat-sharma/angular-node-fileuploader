@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { UserRegister } from './user-register';
 
 @Component({
   selector: 'app-user-registration',
@@ -17,6 +18,7 @@ import { Router } from '@angular/router';
     MatIconModule],
     standalone: true,
   templateUrl: './user-registration.html',
+  providers:[UserRegister],
   styleUrl: './user-registration.scss',
 })
 export class UserRegistration {
