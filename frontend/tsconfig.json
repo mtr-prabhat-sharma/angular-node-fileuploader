@@ -4,6 +4,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "strict": true,
+    "paths": {
+      "hello-word": [
+        "./dist/hello-word"
+      ]
+    },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -29,6 +34,12 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/hello-word/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/hello-word/tsconfig.spec.json"
     }
   ]
 }
